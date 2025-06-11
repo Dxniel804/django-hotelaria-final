@@ -1,0 +1,67 @@
+
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    Editar Quarto
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/editar_quartin.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>EDITAR QUARTO</h1>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div>
+        <label for="id_num_quarto">Número do Quarto:</label>
+        {{ form.num_Quarto }}
+    </div>
+
+    <div>
+        <label for="id_qtd_hospedes">Quantidade de Hóspedes:</label>
+        {{ form.qtd_Hospedes }}
+    </div>
+
+    <div>
+        <label for="id_tipo">Tipo:</label>
+        {{ form.tipo }}
+    </div>
+
+    <div>
+        <label for="id_valor">Valor:</label>
+        {{ form.valor }}
+    </div>
+
+    <div>
+        <label for="id_descricao">Descrição:</label>
+        {{ form.descricao }}
+    </div>
+
+    <div>
+        <br>
+        <label for="id_img">Imagem Atual:</label><br>
+        {% if form.instance.img %}
+            <img src="{{ form.instance.img.url }}" alt="Imagem do quarto" style="max-width: 200px; border-radius: 10px;"><br>
+        {% endif %}
+        {{ form.img }}
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar Alterações</button>
+    <a href="{% url 'listar_quartin' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+
+</div>
+{% endblock %}

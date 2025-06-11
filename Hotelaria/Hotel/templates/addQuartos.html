@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    ADD QUARTO
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/addQuarto.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="form-wrapper">  
+        <form method="POST" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+            <h2>CADASTRAR QUARTO</h2>
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <div>
+                <label for="id_num_quarto">Numero do Quarto: </label>
+                {{ form.num_Quarto }}
+            </div>
+            <div>
+                <label for="id_qtd_hospedes">Quantidade de Hospedes: </label>
+                {{ form.qtd_Hospedes }}
+            </div>
+            <div>
+                <label for="id_tipo">Tipo do Quarto: </label>
+                {{ form.tipo}}
+            </div>
+            <div>
+                <label for="id_valor"> Valor do Quarto: </label>
+                {{ form.valor}}
+            </div>
+            <div>
+                <label for="id_descricao"> Descrição do Quarto: </label>
+                {{ form.descricao}}
+            </div>
+            <div>
+                <label for="id_img"> Imagem do Quarto: </label>
+                {{ form.img}}
+            </div>
+            <button type="submit">CADASTRAR</button>
+        </form>
+    </div>
+{% endblock %}

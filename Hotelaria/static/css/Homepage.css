@@ -1,0 +1,100 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonte e fundo principal */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container principal */
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Cartão principal */
+.homepage-card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Conteúdo interno do cartão */
+.homepage-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+/* Texto */
+.homepage-text {
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    flex: 1 1 60%;
+    padding-right: 20px;
+    height: 500px;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.homepage-title {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.homepage-description {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Imagem */
+.homepage-image {
+    flex: 1 1 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepage-image img {
+    width: 500px;
+}
+
+.homepage-logo {
+    max-width: 410px; /* Aumentado de 180px para 300px */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .homepage-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .homepage-text {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .homepage-image {
+        justify-content: center;
+    }
+}

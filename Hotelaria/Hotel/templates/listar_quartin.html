@@ -1,0 +1,85 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    QUARTOS
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/listar_quartin.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>QUARTOS - HOTEL MOOD</h1>
+
+    <div class="filtros">
+        <a href="{% url 'listar_quartin' 'Solteiro' %}" class="btn">Solteiro</a>
+        <a href="{% url 'listar_quartin' 'Premium' %}" class="btn">Premium</a>
+        <a href="{% url 'listar_quartin' 'Plus' %}" class="btn">Plus</a>
+        <a href="{% url 'listar_quartin' %}" class="btn">Todos</a>
+    </div>
+
+    <!-- Mostrando qual tipo tá filtrado -->
+    {% if tipo_selecionado %}
+        <h2>Filtrando por: {{ tipo_selecionado }}</h2>
+    {% endif %}
+
+    <div class="quartos">
+        {% for quarto in quartos %}
+            <div class="quarto-card">
+                <img src="{{ quarto.img.url }}" alt="Imagem do quarto">
+                <h3>Quarto Nº {{ quarto.num_Quarto }}</h3>
+
+                <div class="quarto-info">
+                    <span><strong>Tipo:</strong> {{ quarto.tipo }}</span>
+                    <span><strong>Quantidade hóspedes:</strong> {{ quarto.qtd_Hospedes }}</span>
+                    <span><strong>Valor:</strong> R$ {{ quarto.valor|floatformat:2 }}</span>
+                    <span>
+                        <strong>Status:</strong>
+                        {% if quarto.status %}
+                            <span style="color: rgb(255, 0, 0);">Reservado</span>
+                        {% else %}
+                            <span style="color: rgb(26, 255, 0);">Disponível</span>
+                        {% endif %}
+                    </span>
+                </div>
+
+                <p class="descricao"><strong>Descrição:</strong> {{ quarto.descricao }}</p>
+
+                <div class="card-actions">
+                    <a href="{% url 'addHospede' quarto.id %}" class="nav-link">Reservar quarto</a>
+
+                    {% if user.groups.all.0.name == "Atendente" %}
+                        <p class="alerta">Você não tem acesso para editar.</p>
+                    {% else %}
+                        <a href="{% url 'editar_quartin' id=quarto.id %}" class="modal-edit">Editar</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% empty %}
+            <p>Nenhum quarto encontrado para esse filtro.</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+<script>
+    function abrirModal() {
+      document.getElementById('meuModal').style.display = 'flex';
+    }
+
+    function fecharModal() {
+      document.getElementById('meuModal').style.display = 'none';
+    }
+
+    function fecharModalSeClicarFora(event) {
+      const modalContent = document.querySelector('.modal-content');
+      if (!modalContent.contains(event.target)) {
+        fecharModal();
+      }
+    }
+  </script> 
+
+{% endblock %}

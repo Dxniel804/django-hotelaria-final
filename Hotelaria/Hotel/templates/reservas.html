@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    RESERVAS
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/reservas.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>RESERVAS - HOTEL MOOD</h1>
+
+    <div class="reservas">
+        {% for quarto, status, hospedes in listar_quartos %}
+            {% if status == 'RESERVADO' %}
+                <div class="reserva-card">
+                    <img src="{{ quarto.img.url }}" alt="Imagem do quarto">
+
+                    <h3>Quarto Nº {{ quarto.num_Quarto }}</h3>
+
+                    <div class="reserva-info">
+                        {% for i in hospedes %}
+                            <p>----------------------------------------------------</p>
+                            <span><strong>Hóspede:</strong> {{ i.nome }}</span><br>
+                            <span><strong>Data início:</strong> {{ i.data_inicio }}</span><br>
+                            <span><strong>Data final:</strong> {{ i.data_final }}</span>
+                        {% endfor %}
+
+                        <span>
+                            <p>----------------------------------------------------</p>
+                            <strong>Status: <span class="status reservado">Reservado</span></strong>
+                        </span>
+                    </div>
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>Nenhuma reserva encontrada.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

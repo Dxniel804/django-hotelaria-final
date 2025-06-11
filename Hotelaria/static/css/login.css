@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f2ef;
+    overflow: hidden; /* remove o scroll */
+}
+
+.login-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.form-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo */
+    background-color: #f4f2ef;
+    position: relative;
+    padding-top: 60px; /* empurra um pouco pra baixo */
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    top: 10%; /* Move o container um pouco mais pra cima */
+    transform: translateY(-10%);
+}
+
+
+.login-container h2 {
+    font-size: 28px;
+    margin-bottom: 24px;
+    color: #2d2d2d;
+    letter-spacing: 1px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #444;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: border 0.2s ease;
+}
+
+.input-group input:focus {
+    border: 1px solid #a3a3a3;
+    outline: none;
+    background-color: #fff;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #e2d4bd;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #2d2d2d;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #d5c7ad;
+}
+
+.mlk-chato {
+    margin-top: 15px;
+    color: #e74c3c;
+    font-size: 14px;
+}
+
+.image-side {
+    flex: 1;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

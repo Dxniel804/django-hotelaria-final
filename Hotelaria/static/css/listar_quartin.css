@@ -1,0 +1,185 @@
+/* arquivo: listar_quartin.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+.modal-edit {
+  padding: 10px;
+}
+
+/* Container geral */
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Títulos */
+h1, h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  color: #666;
+  font-weight: 500;
+}
+
+/* Filtros - botões */
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filtros .btn {
+  background-color: #6a5acd;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.filtros .btn:hover {
+  background-color: #483d8b;
+}
+
+/* Grid de quartos */
+.quartos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Card do quarto */
+.quarto-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quarto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* Imagem do quarto */
+.quarto-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+/* Conteúdo do card */
+.quarto-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2b2b2b;
+  margin: 15px 20px 10px 20px;
+  text-align: center;
+}
+
+.quarto-info {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  padding: 0 20px 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quarto-info span {
+  display: block;
+}
+
+.quarto-info strong {
+  color: #333;
+}
+
+/* Status */
+.quarto-info span strong + span {
+  font-weight: 600;
+}
+
+.quarto-info span strong + span.reservado {
+  color: rgb(255, 0, 0);
+}
+
+.quarto-info span strong + span.disponivel {
+  color: rgb(26, 255, 0);
+}
+
+/* Descrição */
+.descricao {
+  font-size: 0.9rem;
+  color: #444;
+  padding: 0 20px 15px 20px;
+  flex-grow: 1;
+}
+
+/* Ações do card */
+.card-actions {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  gap: 10px;
+}
+
+.card-actions a {
+  background-color: #6a5acd;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  flex: 1;
+  text-decoration: none;
+}
+
+.card-actions a:hover {
+  background-color: #483d8b;
+}
+
+.alerta {
+  color: #b22222;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  flex: 1;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .card-actions {
+    flex-direction: column;
+  }
+}

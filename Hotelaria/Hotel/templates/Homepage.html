@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    HOMEPAGE
+{% endblock %}
+
+{% block head %}    
+    <link rel="stylesheet" href="{% static 'css/Homepage.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="homepage-container">
+        {% for dados in dados_home %}
+            <div class="homepage-card">
+                <div class="homepage-content">
+                    <div class="homepage-text">
+                        <h1 class="homepage-title">{{dados.titulo}}</h1>
+                        <p class="homepage-description">{{ dados.descricao|linebreaksbr }}
+</p>
+                    </div>
+                    <div class="homepage-image">
+                        <img src="{{dados.logo.url}}" alt="{{dados.titulo}}" class="homepage-logo">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}  
