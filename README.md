@@ -236,7 +236,9 @@ admin123
 
 - O ATENDENTE é capaz de visualizar a lista de quartos disponíveis e realizar reservas para os hóspedes, o atendente não pode acessar funcionalidades que são exclusivas para GERENTE.
 
-USUÁRIO
+USUÁRIO E SENHA
+
+- De acordo com os dados que o GERENTE cadastrar o ATENDENTE
 
 ```less
 Atendente01
