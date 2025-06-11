@@ -240,6 +240,8 @@ USUÁRIO E SENHA
 
 - De acordo com os dados que o GERENTE cadastrar o ATENDENTE
 
+---
+
 
 # DESENVOLVEDORES:
 
